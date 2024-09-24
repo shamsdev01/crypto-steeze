@@ -60,7 +60,7 @@ export const Services = () => {
       <div className="flex float-end  sm:space-x-5 sm:space-y-2 sm:items-center justify-center sm:flex-row">
             <a
               href=""
-            //   target="_blank"
+            //   target="_blank"x
               rel="noopener"
               className="px-4 py-2 text-lg font-medium text-center text-white bg-blue-600 rounded-md ">
               Buy Gas Fee
