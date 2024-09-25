@@ -41,7 +41,7 @@ const Reviews = () => {
         <div 
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
+        >    
           {reviews.map((review) => (
             <div key={review.id} className="w-full flex-shrink-0">
               <div className="bg-blue-800 rounded-lg p-6 shadow-lg mx-2">
