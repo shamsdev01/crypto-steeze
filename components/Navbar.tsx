@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 // import ThemeChanger from "./DarkSwitch";
-import Image from "next/image"
+// import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
 
 export const Navbar = () => {
@@ -16,7 +16,7 @@ export const Navbar = () => {
     <div className="w-full">
       <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-1">
         {/* Logo  */}
-        <Link href="/">
+        {/* <Link href="/">
           <span className="flex items-center space-x-2 text-2xl font-medium text-blue-500 dark:text-gray-100">
               <span>
                 <Image
@@ -29,7 +29,7 @@ export const Navbar = () => {
               </span>
             <span>CryptoSteeze</span>
           </span>
-        </Link>
+        </Link> */}
 
         {/* get started  */}
         <div className="gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">

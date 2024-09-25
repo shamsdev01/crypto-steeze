@@ -1,111 +1,87 @@
-import React from 'react'
-import Container from './Container'
-import Image from 'next/image'
+"use client"
+import React, { useState, useEffect, useCallback } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Container from './Container';
 
+interface Review {
+    id: number;
+    text: string;
+    author: string;
+  }
+
+  const reviews: Review[] = [
+    { id: 1, text: "Great service! Helped me understand crypto better.", author: "John D." },
+    { id: 2, text: "Very informative and user-friendly platform.", author: "Sarah M." },
+    { id: 3, text: "Excellent analysis tools. Highly recommended!", author: "Robert K." },
+    { id: 4, text: "The crypto insights are top-notch!", author: "Emily R." },
+    { id: 5, text: "User-friendly interface and great customer support.", author: "Michael T." },
+  ];
+  
+  
 const Reviews = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const nextSlide = useCallback(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
+    }, []);
+  
+    const prevSlide = useCallback(() => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length);
+    }, []);
+  
+    useEffect(() => {
+      const intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+      return () => clearInterval(intervalId);
+    }, [nextSlide]);
   return (
-    <Container>
-    <div>
-            <section className="py-10 sm:py-16 lg:py-24">
-    <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold leading-tight  sm:text-4xl lg:text-5xl">Reviews</h2>
-            <span className="">Here is what our users have to say
-            about our services</span>
+            
+            <div className="relative w-full max-w-4xl mx-auto p-4 overflow-hidden">
+      <h2 className="text-2xl font-bold mb-4 text-center text-white">Reviews</h2>
+      <div className="relative h-48"> {/* Adjust height as needed */}
+        <div 
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {reviews.map((review) => (
+            <div key={review.id} className="w-full flex-shrink-0">
+              <div className="bg-blue-800 rounded-lg p-6 shadow-lg mx-2">
+                <p className="text-lg mb-4 text-white">{review.text}</p>
+                <p className="text-sm font-semibold text-blue-300">- {review.author}</p>
+              </div>
+            </div>
+          ))}
         </div>
-
-        <div className="grid max-w-xl grid-cols-1 mx-auto mt-8 text-center lg:max-w-full sm:mt-12 lg:mt-20 lg:grid-cols-3 gap-x-6 xl:gap-x-12 gap-y-6">
-            <div className="overflow-hidden bg-blue-500 rounded-md shadow">
-                <div className="px-8 py-12">
-                    <div className="relative w-24 h-24 mx-auto">
-                    <Image
-                         src="/assets/images/crypto-steeze_logo.png"
-                         width={300}
-                         height={300}
-                        className={"object-cover"}
-                        alt="Hero Illustration"
-                        loading="eager"
-                        // placeholder="blur"
-                    />
-                        <div className="absolute top-0 right-0 flex items-center justify-center bg-blue-600 rounded-full w-7 h-7">
-                            {/* <svg className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M20.309 17.708C22.196 15.66 22.006 13.03 22 13V5a1 1 0 0 0-1-1h-6c-1.103 0-2 .897-2 2v7a1 1 0 0 0 1 1h3.078a2.89 2.89 0 0 1-.429 1.396c-.508.801-1.465 1.348-2.846 1.624l-.803.16V20h1c2.783 0 4.906-.771 6.309-2.292zm-11.007 0C11.19 15.66 10.999 13.03 10.993 13V5a1 1 0 0 0-1-1h-6c-1.103 0-2 .897-2 2v7a1 1 0 0 0 1 1h3.078a2.89 2.89 0 0 1-.429 1.396c-.508.801-1.465 1.348-2.846 1.624l-.803.16V20h1c2.783 0 4.906-.771 6.309-2.292z"
-                                ></path>
-                            </svg> */}
-                        </div>
-                    </div>
-                    <blockquote className="mt-7">
-                        <p className="">“Amet minim mollit non deserunt ullam co est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat”</p>
-                    </blockquote>
-                    <p className="text-base font-semibold tex-tblack mt-9">Jenny Wilson</p>
-                    <p className="mt-1 text-base ">Project Manager at Microsoft</p>
-                </div>
-            </div>
-
-            <div className="overflow-hidden bg-blue-500 rounded-md shadow">
-                <div className="px-8 py-12">
-                    <div className="relative w-24 h-24 mx-auto">
-                    <Image
-                         src="/assets/images/crypto-steeze_logo.png"
-                         width={300}
-                         height={300}
-                        className={"object-cover"}
-                        alt="Hero Illustration"
-                        loading="eager"
-                        // placeholder="blur"
-                    />
-                        <div className="absolute top-0 right-0 flex items-center justify-center bg-blue-600 rounded-full w-7 h-7">
-                            {/* <svg className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M20.309 17.708C22.196 15.66 22.006 13.03 22 13V5a1 1 0 0 0-1-1h-6c-1.103 0-2 .897-2 2v7a1 1 0 0 0 1 1h3.078a2.89 2.89 0 0 1-.429 1.396c-.508.801-1.465 1.348-2.846 1.624l-.803.16V20h1c2.783 0 4.906-.771 6.309-2.292zm-11.007 0C11.19 15.66 10.999 13.03 10.993 13V5a1 1 0 0 0-1-1h-6c-1.103 0-2 .897-2 2v7a1 1 0 0 0 1 1h3.078a2.89 2.89 0 0 1-.429 1.396c-.508.801-1.465 1.348-2.846 1.624l-.803.16V20h1c2.783 0 4.906-.771 6.309-2.292z"
-                                ></path>
-                            </svg> */}
-                        </div>
-                    </div>
-                    <blockquote className="mt-7">
-                        <p className="text-lg">“Amet minim mollit non deserunt ullam co est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat”</p>
-                    </blockquote>
-                    <p className="text-base font-semibold tex-tblack mt-9">Robert Fox</p>
-                    <p className="mt-1 text-base ">Founder at Brain.co</p>
-                </div>
-            </div>
-
-            <div className="overflow-hidden  bg-blue-500 rounded-md shadow">
-                <div className="px-8 py-12">
-                    <div className="relative w-24 h-24 mx-auto">
-                    <Image
-                         src="/assets/images/crypto-steeze_logo.png"
-                         width={300}
-                         height={300}
-                        className={"object-cover"}
-                        alt="Hero Illustration"
-                        loading="eager"
-                        // placeholder="blur"
-                    />
-                        <div className="absolute top-0 right-0 flex items-center justify-center bg-blue-600 rounded-full w-7 h-7">
-                            {/* <svg className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M20.309 17.708C22.196 15.66 22.006 13.03 22 13V5a1 1 0 0 0-1-1h-6c-1.103 0-2 .897-2 2v7a1 1 0 0 0 1 1h3.078a2.89 2.89 0 0 1-.429 1.396c-.508.801-1.465 1.348-2.846 1.624l-.803.16V20h1c2.783 0 4.906-.771 6.309-2.292zm-11.007 0C11.19 15.66 10.999 13.03 10.993 13V5a1 1 0 0 0-1-1h-6c-1.103 0-2 .897-2 2v7a1 1 0 0 0 1 1h3.078a2.89 2.89 0 0 1-.429 1.396c-.508.801-1.465 1.348-2.846 1.624l-.803.16V20h1c2.783 0 4.906-.771 6.309-2.292z"
-                                ></path>
-                            </svg> */}
-                        </div>
-                    </div>
-                    <blockquote className="mt-7">
-                        <p className="text-lg ">“Amet minim mollit non deserunt ullam co est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat”</p>
-                    </blockquote>
-                    <p className="text-base font-semibold tex-tblack mt-9">Kristin Watson</p>
-                    <p className="mt-1 text-base ">UX Designer at Google</p>
-                </div>
-            </div>
-        </div>
+      </div>
+      <button
+        onClick={prevSlide}
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full text-white hover:bg-blue-600 transition-colors"
+        aria-label="Previous review"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 p-2 rounded-full text-white hover:bg-blue-600 transition-colors"
+        aria-label="Next review"
+      >
+        <ChevronRight size={24} />
+      </button>
+      <div className="flex justify-center mt-4 space-x-2">
+        {reviews.map((_, index) => (
+          <div
+            key={index}
+            className={`h-2 w-2 rounded-full ${
+              index === currentIndex ? 'bg-blue-500' : 'bg-blue-300'
+            }`}
+          />
+        ))}
+      </div>
     </div>
-</section>
-    </div>
-    </Container>
+
   )
 }
 
 export default Reviews
+
 
 

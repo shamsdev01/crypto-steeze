@@ -5,8 +5,9 @@ export const Services = () => {
   return (
     <Container>
         <div className=" flex justify-center flex-wrap">
-            <h1 className="text-white text-2xl p-5"> Our Services</h1>
+            <h1 className="text-white text-2xl p-2"> Our Services</h1>
         </div>
+        <span className=" flex justify-center flex-wrap mb-3 font-bold">Trade with us</span>
       <div className="grid gap-10  mb-8 lg:grid-cols-2 xl:grid-cols-3">
         <div className="lg:col-span-2 xl:col-auto">
           <div className="flex flex-col gap-2 w-full h-full bg-blue-500 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
@@ -57,7 +58,17 @@ export const Services = () => {
           </div>
         </div>
       </div>
-      <div className="flex float-end  sm:space-x-5 sm:space-y-2 sm:items-center justify-center sm:flex-row">
+    <div className=" flex justify-around">
+    <div className="flex   sm:space-x-5 sm:space-y-2 sm:items-center justify-center sm:flex-row">
+            <a
+              href=""
+            //   target="_blank"x
+              rel="noopener"
+              className="px-4 py-2 text-lg font-medium text-center text-white bg-blue-600 rounded-md ">
+                Free Mode
+            </a>
+          </div>
+          <div className="flex   sm:space-x-5 sm:space-y-2 sm:items-center justify-center sm:flex-row">
             <a
               href=""
             //   target="_blank"x
@@ -66,6 +77,7 @@ export const Services = () => {
               Buy Gas Fee
             </a>
           </div>
+    </div>
     </Container>
   );
 };

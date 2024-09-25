@@ -25,9 +25,10 @@ const Hero = () => {
       <div className="flex items-center w-full lg:w-1/2">
         <div className="max-w-2xl mb-8">
           <h1 className="text-3xl font-bold leading-snug tracking-tight lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
-            Unlock the power <span className='text-blue-900'>Power</span> Of Crypto
+            Unlock the <span className='text-blue-900'>Power</span> Of Crypto
           </h1>
-          <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
+          <span className="font-bold leding-snug trackig-tight  mt-2 lg:leading-tight  xl:leading-tight ">We help you make informed choices in Cryptocurrency</span>
+          <div className="flex flex-col items-start space-y-3  mt-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
             <a
               href="/"
               target="_blank"

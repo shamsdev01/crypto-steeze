@@ -15,10 +15,15 @@ const Analysis = () => {
       <li>Project Name: Blum</li>
       <li>Success rate: 80%</li>
       </div>
+      <span className="font-bold ">Instagram :</span>
+      <span className="font-bold ">Facebook :</span>
+      <span className="font-bold ">Twitter :</span>
       <span className=" font-bold">Summary</span>
       <span>This project as 80% success rate
       is a good one</span>
-      <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded self-start">
+      <h3 className=" font-bold mt-2">Note:</h3>
+      <span className="">Come back for new development from the project</span>
+      <button className="bg-blue-500 hover:bg-blue-300  text-white mt-6 font-bold py-2 px-4 rounded self-start">
         Explore
       </button>
     </div>

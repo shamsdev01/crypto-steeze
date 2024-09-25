@@ -1,11 +1,10 @@
 
-// import Image from 'next/image'
-
 // import { Header } from "@/components/Header"
 import Analysis from "@/components/Analysis"
 import Hero from "@/components/Hero"
 import { Navbar } from "@/components/Navbar"
 import Reviews from "@/components/Reviews"
+import Satoshi from "@/components/Satoshi"
 import { Services } from "@/components/Services"
 import WhyUs from "@/components/WhyUs"
 
@@ -24,7 +23,8 @@ const Home= () => {
           <Services/>
           <WhyUs/>
           <Analysis/>
-          <Reviews/>
+          <Satoshi/>
+        <Reviews/>
     </div>
 
     </>
