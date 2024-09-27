@@ -1,21 +1,24 @@
-
+import React from 'react';
 
 interface ContainerProps {
   children: React.ReactNode;
   className?: string;
+  backgroundImage?: string;
 }
 
-const Container = (props: Readonly<ContainerProps>) => {
+const Container = ({ children, className, backgroundImage }: ContainerProps) => {
+  const containerStyle: React.CSSProperties = backgroundImage
+    ? { backgroundImage: `url(${backgroundImage})` }
+    : {};
+
   return (
     <div
-         className={`container p-8 mx-auto xl:px-0 ${
-        props.className ? props.className : ""
-      }`}>
-      {props.children}
+      className={`container mx-auto xl:px-0 bg-cover bg-center bg-no-repeat ${className || ''}`}
+      style={containerStyle}
+    >
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default Container
-
-
+export default Container;

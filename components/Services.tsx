@@ -1,83 +1,72 @@
-import React from "react";
-import Container from "./Container";
+import React from 'react';
 
-export const Services = () => {
+interface ServiceItem {
+  title: string;
+  subtitle: string;
+  items: string[];
+}
+
+const ServiceCard = ({ title, subtitle, items }: ServiceItem) => (
+  <div className="flex flex-col">
+    <h3 className="text-xl font-bold mb-1 text-white flex items-center justify-center">{title}</h3>
+    <p className="text-sm mb-2 text-white flex items-center justify-center">{subtitle}</p>
+    <div className="bg-gradient-to-b from-[#001F3F] to-[#034D99] rounded-xl p-4 text-white h-full">
+      <ul className="list-disc list-inside">
+        {items.map((item, index) => (
+          <li key={index} className="text-sm text-black">{item}</li>
+        ))}
+      </ul> 
+    </div>
+  </div>
+);
+
+const Services = () => {
+  const services: ServiceItem[] = [
+    {
+      title: "Holder",
+      subtitle: "Where crypto meets confidence",
+      items: ["Mining App", "Telegram Airdrop", "Testnet Airdrops", "Success Rate"]
+    },
+    {
+      title: "Flipper",
+      subtitle: "Flip your way to crypto success",
+      items: ["Minning apps", "Airdrop guide","Low gas fee tricks", "Honeypot alert", "Telegram airdrop","ICO/IDO calls","Test net airdrops","Meme coins calls","Market analysis","Success rate"]
+    },
+    {
+      title: "Satoshi",
+      subtitle: "Unlock elite crypto insights with satoshi",
+      items: ["Mining apps", "Airdrop guide", "Honeypot alert", "Low gas fee tricks", "ICO/IDO calls", "Telegram airdrops", "Test net airdrops", "Meme coins call", "NFTs calls", "Retroactive airdrops", "Market analysis", "T.A mentorship", "Crypto anf forex trading signals", "Successn rate"]
+    }
+  ];
+
   return (
-    <Container>
-        <div className=" flex justify-center flex-wrap">
-            <h1 className="text-white text-2xl p-2"> Our Services</h1>
-        </div>
-        <span className=" flex justify-center flex-wrap mb-3 font-bold">Trade with us</span>
-      <div className="grid gap-10  mb-8 lg:grid-cols-2 xl:grid-cols-3">
-        <div className="lg:col-span-2 xl:col-auto">
-          <div className="flex flex-col gap-2 w-full h-full bg-blue-500 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <span className=" text-2xl">Holder</span>
-            <span className="text-1xl">Where crypto meets confidence </span>
-                <div className="">
-                <li>Mining App</li>
-                <li>Telegram Airdrop</li>
-                <li>Testnet Airdrops</li>
-                <li>Success Rate</li>
-                </div>
-          </div>
-        </div>
+    <div className="bg-gradient-to-b from-[#034D99] via-[#034D99] to-[#F5F5F5] rounded-[50px] p-8">
+      <h2 className="text-2xl font-bold text-white text-center mb-2">Our Services</h2>
+      <p className="text-center font-bold mb-6 text-white">Trade with us</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {services.map((service, index) => (
+          <ServiceCard key={index} {...service} />
+        ))}
+      </div>
+      <div className="flex justify-around space-x-4">
+       <div className="">
+       <button className="border-[3px] border-[#288232] bg-gradient-to-r from-[#001F3F] to-[#F5F5F5] flex w-[400px] py-[15px] px-0 justify-center items-center">
+          Free Mode
+        </button>
+        <span className=" flex items-center text-black justify-center mt-2">Can only check<br></br>
+        two projects per week</span>
+       </div>
         <div className="">
-          <div className="flex flex-col gap-3  w-full h-full bg-blue-500 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-          <span className=" text-2xl">Flipper</span>
-          <span className="text-1xl">flip your way to crypto success</span>
-                <div className="">
-                <li>Airdrop Guide</li>
-                <li>Low gas fee tricks</li>
-                <li>Honeypot alert</li>
-                <li>ICO/IDO calls</li>
-                <li>Meme coins calls</li>
-                <li>Market analysis</li>
-                <li>Success rate</li>
-                </div>
+        <button className="border-[3px] border-[#288232] bg-gradient-to-r from-[#001F3F] to-[#F5F5F5] flex w-[400px] py-[15px] px-0 justify-center items-center">
+  Buy Gas Fee
+</button>
+        <span className=" flex items-center text-black justify-center">Never run out of gas fee <br></br>  deposit ahead and buy at <br></br> current market rate </span>
 
-            {/* <Avatar
-              image={}
-              name="Dylan Ambrose"
-              title="Lead marketer at Netflix"
-            /> */}
-          </div>
-        </div>
-        <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-blue-500 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-          <span className=" text-2xl">Satoshi</span>
-          <span className="text-1xl">Unlock elite crypto insights with satoshi</span>
-                <div className="">
-                <li>NFTs calls</li>
-                <li>Retroactive airdrops</li>
-                <li>Market analysis</li>
-                <li>T.A mentorship</li>
-                <li>Successn Rate</li>
-                <li>Crypto anf forex trading signals</li>
-                </div>
 
-          </div>
         </div>
       </div>
-    <div className=" flex justify-around">
-    <div className="flex   sm:space-x-5 sm:space-y-2 sm:items-center justify-center sm:flex-row">
-            <a
-              href=""
-            //   target="_blank"x
-              rel="noopener"
-              className="px-4 py-2 text-lg font-medium text-center text-white bg-blue-600 rounded-md ">
-                Free Mode
-            </a>
-          </div>
-          <div className="flex   sm:space-x-5 sm:space-y-2 sm:items-center justify-center sm:flex-row">
-            <a
-              href=""
-            //   target="_blank"x
-              rel="noopener"
-              className="px-4 py-2 text-lg font-medium text-center text-white bg-blue-600 rounded-md ">
-              Buy Gas Fee
-            </a>
-          </div>
     </div>
-    </Container>
   );
 };
+
+export default Services;

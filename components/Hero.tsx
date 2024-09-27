@@ -22,7 +22,7 @@ const Hero = () => {
   return (
     <>
     <Container className="flex flex-wrap ">
-      <div className="flex items-center w-full lg:w-1/2">
+      <div className="flex items-center w-full lg:w-1/2" >
         <div className="max-w-2xl mb-8">
           <h1 className="text-3xl font-bold leading-snug tracking-tight lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
             Unlock the <span className='text-blue-900'>Power</span> Of Crypto
@@ -54,13 +54,13 @@ const Hero = () => {
       </div>
     </Container>
     <Container>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center mb-9">
         <div className="text-xl text-center text-white dark:text-white">
           Metrics:
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mt-5 md:justify-between">
-          <div className="pt-2 text-white dark:text-gray-400 text-2xl md:text-xl">
+        <div className="flex sm:flex-row flex-col items-center justify-center gap-2 mt-5 md:justify-between">
+          <div className="text-white dark:text-gray-400 text-2xl md:text-xl">
             Visitors : {visits}
           </div>
           <div className="text-white dark:text-gray-400 text-2xl md:text-xl">
