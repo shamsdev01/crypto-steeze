@@ -53,7 +53,9 @@ const AnalysisWriteup = () => {
                 </div>
             </div>
         </div>
-        <div className="grid w-full max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-black h-2xl  lg:grid-cols-5"></div>
+        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t-8 border-[#302d2d3b] h-4xl lg:grid-cols-5"></div>
+
+
 
     </Container>
     
