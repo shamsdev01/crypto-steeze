@@ -11,6 +11,8 @@ import Services from "@/components/Services"
 import AnalysisWriteup from "@/components/AnalysisWriteup"
 import SatoshiAnalysis from "@/components/SatoshiAnalysis"
 import AlphaCall from "@/components/AlphaCall"
+import ScrollAnimation from "@/components/ScrollAnimation"
+import { LazyLoad } from "@/components/LazyLooad"
 
 const Home = () => {
   return (
@@ -30,16 +32,33 @@ const Home = () => {
             <link rel="icon" href="/favicon.ico" />
           </Head> */}
           <Navbar />
+          <ScrollAnimation>
           <Hero />
+          </ScrollAnimation>
+         <ScrollAnimation>
+         <LazyLoad>
           <Services />
+          </LazyLoad>
+         </ScrollAnimation>
+
+         <ScrollAnimation>
+         <LazyLoad>
           <WhyUs />
-          <Analysis />
-          <AnalysisWriteup/>
-          <Satoshi />
-          <SatoshiAnalysis/>
-          <Reviews /> 
-          <AlphaCall/>
-          <Footer />
+          </LazyLoad>
+         </ScrollAnimation>
+
+            <ScrollAnimation>
+            <LazyLoad>
+         <Analysis />
+         </LazyLoad>
+            </ScrollAnimation>
+          
+          <ScrollAnimation> <LazyLoad><AnalysisWriteup/></LazyLoad></ScrollAnimation>
+         <ScrollAnimation><LazyLoad> <Satoshi /></LazyLoad></ScrollAnimation>
+          <ScrollAnimation><LazyLoad><SatoshiAnalysis/></LazyLoad></ScrollAnimation>
+          <ScrollAnimation><LazyLoad>  <Reviews /> </LazyLoad></ScrollAnimation>
+            <ScrollAnimation><LazyLoad> <AlphaCall/></LazyLoad></ScrollAnimation>
+          <ScrollAnimation><LazyLoad><Footer /></LazyLoad></ScrollAnimation>
         </div>
       </div>
     </>

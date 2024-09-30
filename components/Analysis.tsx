@@ -1,58 +1,93 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
-// import Container from './Container'
+import { motion } from 'framer-motion'
 
 const Analysis = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  }
+
   return (
-    // <Container>
-       <div className="container mx-auto px-4 py-8">
-    <div className="flex flex-col sm:flex-row items-center sm:items-stretch gap-8">
-    <div className="w-full sm:w-1/2 order-2 sm:order-2 flex flex-col justify-center">
-      <h1 className="text-3xl font-bold mb-4">
-      <span className="text-[#034D99]">Project</span> Analysis & Articles
-      </h1>
-      <div className="text-white text-1xl p-4">
-      <div className="flex gap-5 ">
-      <li>Project Name: Blum </li>  <Image
-        src="/assets/images/blum.png"
-        alt="Crypto Steeze Logo"
-        width={40}
-        height={40}
-        className="rounded-lg shadow-lg"
-      />
+    <motion.div 
+      className="container mx-auto px-4 py-8"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <div className="flex flex-col sm:flex-row items-center sm:items-stretch gap-8">
+        <motion.div 
+          className="w-full sm:w-1/2 order-2 sm:order-2 flex flex-col justify-center"
+          variants={itemVariants}
+        >
+          <motion.h1 
+            className="text-3xl font-bold mb-4"
+            variants={itemVariants}
+          >
+            <span className="text-[#034D99]">Project</span> Analysis & Articles
+          </motion.h1>
+          <motion.div 
+            className="text-white text-1xl p-4"
+            variants={itemVariants}
+          >
+            <div className="flex gap-5 ">
+              <li>Project Name: Blum </li>  
+              <Image
+                src="/assets/images/blum.png"
+                alt="Crypto Steeze Logo"
+                width={40}
+                height={40}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+            <li>Success rate: 80%</li>
+          </motion.div>
+          <motion.span className="font-bold" variants={itemVariants}>Instagram :</motion.span>
+          <motion.span className="font-bold" variants={itemVariants}>Facebook :</motion.span>
+          <motion.span className="font-bold" variants={itemVariants}>Twitter :</motion.span>
+          <motion.div className="flex" variants={itemVariants}>
+            <Image
+              src="/assets/images/Group 21.png"
+              alt="Crypto Steeze Logo"
+              width={90}
+              height={90}
+              className="rounded-lg shadow-lg"
+            />
+            <h4 className=" font-bold">Summary:</h4>
+            <h3>This project as 80% success rate is a good one</h3>
+          </motion.div>
+          <motion.h3 className=" font-bold mt-2" variants={itemVariants}>Note:</motion.h3>
+          <motion.span className="" variants={itemVariants}>Come back for new development from the project</motion.span>
+        </motion.div>
+        <motion.div 
+          className="w-full sm:w-1/2 order-2 sm:order-1 flex items-center"
+          variants={itemVariants}
+        >
+          <Image
+            src="/assets/images/mobileBitcoin.png"
+            alt="Crypto Steeze Logo"
+            width={400}
+            height={400}
+            className="rounded-lg shadow-lg"
+          />
+        </motion.div>
       </div>
-      <li>Success rate: 80%</li>
-      </div>
-      <span className="font-bold ">Instagram :</span>
-      <span className="font-bold ">Facebook :</span>
-      <span className="font-bold ">Twitter :</span>
-      <div className="flex">
-      <Image
-        src="/assets/images/Group 21.png"
-        alt="Crypto Steeze Logo"
-        width={90}
-        height={90}
-        className="rounded-lg shadow-lg"
-      />
-      <h4 className=" font-bold">Summary:</h4>
-      <h3>This project as 80% success rate
-      is a good one</h3>
-      </div>
-      <h3 className=" font-bold mt-2">Note:</h3>
-      <span className="">Come back for new development from the project</span>
-    </div>
-    <div className="w-full sm:w-1/2 order-2 sm:order-1 flex items-center ">
-      <Image
-        src="/assets/images/mobileBitcoin.png"
-        alt="Crypto Steeze Logo"
-        width={400}
-        height={400}
-        className="rounded-lg shadow-lg"
-      />
-    </div>
-  </div>
-</div>
-        // </Container>
+    </motion.div>
   )
 }
 
